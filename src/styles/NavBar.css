@@ -74,6 +74,45 @@
   filter: drop-shadow(0 0 20px #ff00ff); /* Glow más intenso momentáneo */
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  line-height: 1;
+  position: relative;
+  overflow: visible;
+}
+
+.logo-container::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 8%;
+  right: -4%;
+  width: 70%;
+  height: 80%;
+  background: linear-gradient(90deg, transparent 8%, rgba(138, 43, 226, 0.18) 30%, rgba(138, 43, 226, 0.42) 55%, rgba(206, 169, 255, 0.18) 100%);
+  filter: blur(16px);
+  opacity: 0.95;
+  mix-blend-mode: screen;
+}
+
+.logo-container::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  width: 56%;
+  height: 100%;
+  background: radial-gradient(circle at 100% 50%, rgba(138, 43, 226, 0.55), rgba(138, 43, 226, 0.15) 32%, transparent 62%);
+  filter: blur(12px);
+  opacity: 0.85;
+  mix-blend-mode: screen;
+}
+
 .logo-img {
   width: 8vw;
   max-width: 100px;
@@ -83,29 +122,20 @@
   line-height: 1;
   transition: all 0.3s ease-in-out;
   display: block;
-  filter: drop-shadow(8px 0 12px rgba(138, 43, 226, 0.8)) drop-shadow(16px 0 24px rgba(138, 43, 226, 0.6)) drop-shadow(24px 0 36px rgba(138, 43, 226, 0.4)) brightness(1.1);
+  filter: drop-shadow(10px 0 16px rgba(138, 43, 226, 0.85)) drop-shadow(20px 0 28px rgba(138, 43, 226, 0.55)) brightness(1.12);
 }
 
-/* Logo más ancho en escritorio (tamaño intermedio) */
-@media (min-width: 768px) {
+/* Logo más ancho en escritorio */
+@media (min-width: 1024px) {
   .logo-img {
-    width: 13vw;
-    max-width: 160px;
+    width: 18vw;
+    max-width: 240px;
   }
 }
 
 .logo-container:hover .logo-img,
 .logo-container:focus .logo-img {
-  transform: scale(1.05);
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: auto;
-  line-height: 1;
+  transform: scale(1.06);
 }
 
   /* Efecto para cuando el usuario está en Home o en /info/*** */
