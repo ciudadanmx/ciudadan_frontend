@@ -83,7 +83,7 @@
   line-height: 1;
   transition: all 0.3s ease-in-out;
   display: block;
-  filter: drop-shadow(-8px 0 12px rgba(138, 43, 226, 0.8)) drop-shadow(-16px 0 24px rgba(138, 43, 226, 0.6)) drop-shadow(-24px 0 36px rgba(138, 43, 226, 0.4)) brightness(1.1);
+  filter: drop-shadow(8px 0 12px rgba(138, 43, 226, 0.8)) drop-shadow(16px 0 24px rgba(138, 43, 226, 0.6)) drop-shadow(24px 0 36px rgba(138, 43, 226, 0.4)) brightness(1.1);
 }
 
 /* Logo más ancho en escritorio (tamaño intermedio) */
