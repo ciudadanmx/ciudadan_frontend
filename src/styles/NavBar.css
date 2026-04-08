@@ -85,6 +85,14 @@
   display: block;
 }
 
+/* Logo más ancho en escritorio */
+@media (min-width: 768px) {
+  .logo-img {
+    width: 18vw;
+    max-width: 220px;
+  }
+}
+
 .logo-container:hover .logo-img,
 .logo-container:focus .logo-img {
   transform: scale(1.05);
