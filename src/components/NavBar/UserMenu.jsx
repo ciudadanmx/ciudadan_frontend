@@ -29,7 +29,7 @@ const UserMenu = ({
   const navigate = useNavigate();
 
   const menuRef = useRef(null);
-  const [position, setPosition] = useState({ top: 80, left: 0 });
+  const [position, setPosition] = useState({ top: 80, right: 20 });
 
   // POSICIONAMIENTO CORRECTO
   useEffect(() => {
@@ -37,13 +37,12 @@ const UserMenu = ({
 
     const rect = containerRef.current.getBoundingClientRect();
 
-    // Menú alineado al lado derecho del ícono, extendiendo hacia la izquierda
-    let left = rect.right - MENU_WIDTH + 12;
-    if (left < 10) left = 10;
+    // Usar right desde el borde de la pantalla para alinear cerca del ícono
+    let right = window.innerWidth - rect.right + 8;
 
     setPosition({
       top: rect.bottom + 8,
-      left,
+      right,
     });
   }, [isProfileMenuOpen, containerRef]);
 
@@ -80,7 +79,7 @@ const UserMenu = ({
       style={{
         position: "fixed",
         top: position.top,
-        left: position.left,
+        right: position.right,
         width: MENU_WIDTH,
         background: "#ffffff",
         borderRadius: 14,
