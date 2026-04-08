@@ -37,8 +37,8 @@ const UserMenu = ({
 
     const rect = containerRef.current.getBoundingClientRect();
 
-    // Posicionar menú a la izquierda del ícono
-    let left = rect.left - MENU_WIDTH - 8;
+    // Posicionar menú alineado con el ícono, extending hacia la izquierda
+    let left = rect.left - 80;
     if (left < 10) left = 10;
 
     setPosition({
