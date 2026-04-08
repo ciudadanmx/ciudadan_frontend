@@ -38,7 +38,7 @@ const UserMenu = ({
     const rect = containerRef.current.getBoundingClientRect();
 
     // Usar right desde el borde de la pantalla para alinear cerca del ícono
-    let right = window.innerWidth - rect.right + 8;
+    let right = window.innerWidth - rect.right - 20;
 
     setPosition({
       top: rect.bottom + 8,
