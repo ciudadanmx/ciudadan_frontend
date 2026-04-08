@@ -25,25 +25,27 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 2px 4px;
+  padding: 4px 8px;
   background-color: #fff200;
   margin-bottom: 0;
-  min-height: 60px;
+  min-height: 70px;
   height: auto;
   flex-shrink: 0;
-  overflow: hidden;
-  gap: 2px;
+  overflow: visible;
+  gap: 8px;
   line-height: 1;
 }
 
 .columnax {
   display: flex;
   align-items: center;
+  justify-content: center;
   white-space: nowrap;
-  height: auto;
+  height: 100%;
   line-height: 1;
   margin: 0;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .columnas {
@@ -85,29 +87,100 @@
   overflow: visible;
 }
 
+.logo-container::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 8%;
+  right: -4%;
+  width: 70%;
+  height: 80%;
+  background: linear-gradient(90deg, transparent 8%, rgba(138, 43, 226, 0.18) 30%, rgba(138, 43, 226, 0.42) 55%, rgba(206, 169, 255, 0.18) 100%);
+  filter: blur(16px);
+  opacity: 0.95;
+  mix-blend-mode: screen;
+}
+
+.logo-container::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  width: 56%;
+  height: 100%;
+  background: radial-gradient(circle at 100% 50%, rgba(138, 43, 226, 0.55), rgba(138, 43, 226, 0.15) 32%, transparent 62%);
+  filter: blur(12px);
+  opacity: 0.85;
+  mix-blend-mode: screen;
+}
+
 .logo-img {
-  width: 8vw;
-  max-width: 100px;
-  height: auto;
+  width: 10vw;
+  max-width: 110px;
+  height: 60px;
   margin: 0;
   padding: 0;
   line-height: 1;
   transition: all 0.3s ease-in-out;
-  display: block;
-  filter: drop-shadow(8px 0 14px rgba(138, 43, 226, 0.75)) drop-shadow(16px 0 26px rgba(138, 43, 226, 0.45)) brightness(1.1);
+  display: block !important;
+  object-fit: contain;
+  filter: drop-shadow(10px 0 16px rgba(138, 43, 226, 0.85)) drop-shadow(20px 0 28px rgba(138, 43, 226, 0.55)) brightness(1.12);
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
 }
 
 /* Logo más ancho en escritorio */
 @media (min-width: 768px) {
   .logo-img {
-    width: 13vw;
-    max-width: 160px;
+    width: 16vw;
+    max-width: 200px;
+    height: 65px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-img {
+    width: 20vw;
+    max-width: 260px;
+    height: 68px;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo-img {
+    width: 12vw;
+    max-width: 90px;
+    height: 55px;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 490px) {
+  .logo-img {
+    width: 14vw;
+    max-width: 75px;
+    height: 50px;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+  }
+}
+
+@media (max-width: 378px) {
+  .logo-img {
+    width: 18vw;
+    max-width: 65px;
+    height: 45px;
+    margin-right: 0 !important;
   }
 }
 
 .logo-container:hover .logo-img,
 .logo-container:focus .logo-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
   /* Efecto para cuando el usuario está en Home o en /info/*** */
@@ -349,10 +422,7 @@
   align-items: center;
   position: relative;
   top: 0;
-  gap: 14px;
-  justify-content: flex-end;
-  flex-wrap: nowrap;
-  min-width: 0;
+  gap: 2px;
 }
 
 .columna2 {
@@ -361,39 +431,6 @@
   max-width: 80%;
   left: 0;
 }
-
-.nav-linky {
-  min-width: 0;
-}
-
-@media (max-width: 767px) {
-  .columnas {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 12px;
-  }
-
-  .columna3 {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .columna2 {
-    max-width: 100%;
-  }
-
-  .nav-linky {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .nav-linky > * {
-    min-width: 0;
-  }
-}
-
 
 .wraper {
   width: 100%;
@@ -549,12 +586,6 @@
 /* Responsividad para tabletas */
 @media (max-width: 1268px) {
 
-  .logo-img {
-    width: 210px; /* Tamaño grande del logo, ajusta según sea necesario */
-    height: auto;
-    margin-bottom: 10px;
-    max-width: 220px;
-  }
   .nav-text {
     display: block; /* Mostrar el texto debajo del ícono en escritorio */
     margin-top: 5px;
@@ -666,13 +697,6 @@
 /* Pantallas muy pequeñas en dispositivos Móviles */
 @media (max-width: 378px) {
   
-  .logo-img {
-    max-width: 45vw; /* Tamaño grande del logo, ajusta según sea necesario */
-    height: auto;
-    margin-right: -7vw;
-    margin-bottom: 10px;
-  }
-
   .nav-text {
     display: none !important; /* Mostrar el texto debajo del ícono en escritorio */
   }
@@ -700,17 +724,6 @@
 
   /* Ajuste fino del tamaño del Logo */
   @media (max-width: 490px) {
-
-    .logo-img {
-      max-width: 13vw; /* Tamaño grande del logo, ajusta según sea necesario */
-      height: auto;
-      
-      position: absolute; 
-      left: 4vw;
-      top: 2.5vw;
-      margin-bottom: 20px;
-
-    }
   
     .nav-links {
       margin-top: 3px !important;
