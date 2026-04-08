@@ -377,7 +377,10 @@
   align-items: center;
   position: relative;
   top: 0;
-  gap: 2px;
+  gap: 14px;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .columna2 {
@@ -386,6 +389,39 @@
   max-width: 80%;
   left: 0;
 }
+
+.nav-linky {
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .columnas {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .columna3 {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .columna2 {
+    max-width: 100%;
+  }
+
+  .nav-linky {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .nav-linky > * {
+    min-width: 0;
+  }
+}
+
 
 .wraper {
   width: 100%;
