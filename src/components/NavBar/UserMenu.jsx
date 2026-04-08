@@ -37,12 +37,13 @@ const UserMenu = ({
 
     const rect = containerRef.current.getBoundingClientRect();
 
-    let right = rect.left - MENU_WIDTH;
-    if (right < 10) right = 10;
+    // Posicionar menú a la izquierda del ícono
+    let left = rect.left - MENU_WIDTH - 8;
+    if (left < 10) left = 10;
 
     setPosition({
       top: rect.bottom + 8,
-      right,
+      left,
     });
   }, [isProfileMenuOpen, containerRef]);
 
@@ -79,7 +80,7 @@ const UserMenu = ({
       style={{
         position: "fixed",
         top: position.top,
-        right: -10,
+        left: position.left,
         width: MENU_WIDTH,
         background: "#ffffff",
         borderRadius: 14,
