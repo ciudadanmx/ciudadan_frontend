@@ -425,6 +425,13 @@
   gap: 2px;
 }
 
+/* Más espacio entre iconos en escritorio */
+@media (min-width: 1024px) {
+  .columna3 {
+    gap: 24px;
+  }
+}
+
 .columna2 {
   position: relative;
   top: 0;
