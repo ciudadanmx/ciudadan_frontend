@@ -8,6 +8,10 @@ import {
 } from 'react-icons/fa';
 import { BsBriefcaseFill } from "react-icons/bs";
 import { AiOutlineApartment } from "react-icons/ai";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
+import ShareIcon from '@mui/icons-material/Share';
 
 import { registerUserInStrapi, findUserInStrapi } from '../../utils/strapiUserService';
 import guestImage from '../../assets/guest.png';
@@ -23,6 +27,7 @@ import CiudadanBadge from '../CiudadanBadge.jsx';
 import MenuTopBar from './MenuTopBar.jsx';
 import HearthButton from './HearthButton.jsx';
 import CartIcon from './CartIcon';
+import ShareButton from '../ShareButton.jsx';
 
 import '../../styles/NavBar.css';
 import '../../styles/CuentaIcon.css';
@@ -56,6 +61,9 @@ const NavBar = ({ SetIsMenuOpen, siteSection }) => {
   const [lastRoute, setLastRoute] = useState(siteSection || '/');
   const [routeRepeat, setRouteRepeat] = useState(0);
   const [activeTab, setActiveTab] = useState('');
+  const [isBottomBarVisible, setIsBottomBarVisible] = useState(true);
+  const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
+  const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
   const location = useLocation();
   const isHomeOrInfo = location.pathname === '/' || location.pathname.startsWith('/info/');
 
@@ -371,7 +379,7 @@ const closeAllMenus = (except) => {
         </div>
 
         {/* fila inferior: botones del menú */}
-        <div className="nav-links wraper">
+        <div className={`nav-links wraper bottom-bar${isBottomBarVisible ? '' : ' bottom-bar--hidden'}`}>
           {menuSections.map((section) => {
             const serverCount = (contadorNotificaciones && contadorNotificaciones[section]) ? Number(contadorNotificaciones[section]) : 0;
             const optimistic = optimisticByType?.[section] || 0;
@@ -389,6 +397,74 @@ const closeAllMenus = (except) => {
           })}
         </div>
       </section>
+
+      <button
+        className="split-action-button"
+        type="button"
+        style={{ bottom: isBottomBarVisible ? '72px' : '12px' }}
+        aria-label="Acciones rápidas"
+      >
+        <span
+          className="split-button-part split-left"
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsBottomBarVisible(prev => !prev);
+          }}
+        >
+          Inferior
+        </span>
+        <span
+          className="split-button-part split-right"
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsRightSidebarOpen(prev => !prev);
+          }}
+        >
+          Lateral
+        </span>
+      </button>
+
+      <div
+        className={`right-sidebar${isRightSidebarOpen ? ' right-sidebar--open' : ''}`}
+        style={{ top: '86px', bottom: isBottomBarVisible ? '142px' : '82px' }}
+      >
+        <button
+          type="button"
+          className="sidebar-icon-button"
+          aria-label="Ir arriba"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <ArrowUpwardIcon fontSize="small" />
+        </button>
+        <button
+          type="button"
+          className="sidebar-icon-button"
+          aria-label="Mostrar asistente texto"
+        >
+          <TextFieldsIcon fontSize="small" />
+        </button>
+        <button
+          type="button"
+          className="sidebar-icon-button"
+          aria-label="Mostrar asistente voz"
+        >
+          <KeyboardVoiceIcon fontSize="small" />
+        </button>
+        <button
+          type="button"
+          className="sidebar-icon-button"
+          aria-label="Compartir"
+          onClick={() => setIsSharePopupOpen(true)}
+        >
+          <ShareIcon fontSize="small" />
+        </button>
+      </div>
+
+      <ShareButton
+        showButton={false}
+        open={isSharePopupOpen}
+        onOpenChange={setIsSharePopupOpen}
+      />
 
       {/* ===== CSS específico para la topbar (puedes mover a NavBar.css) ===== */}
       <style jsx>{`

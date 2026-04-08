@@ -24,7 +24,6 @@ import './styles/index.css';
 // IMPORTA ScrollToTop
 import ScrollToTop from './components/ScrollToTop.jsx';
 import AuthGate from './components/AuthGate.jsx';
-import ShareButton from './components/ShareButton.jsx';
 
 const domain    = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId  = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -58,12 +57,12 @@ const AppWrapper = () => {
     <Box
       id="marihuanasclub-app"
       sx={{
-        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        maxWidth: "100vw",
-        overflowX: "hidden",   // 👈 clave
+        height: "100%",
+        overflowY: "auto",
+        overflowX: "hidden",
       }}
     >
       
@@ -73,7 +72,6 @@ const AppWrapper = () => {
       <Rutas />
       <AuthGate>
         <Asistente />
-        <ShareButton />
       </AuthGate>
       </Box>
       

@@ -1,3 +1,10 @@
+.asistente-container,
+.asistente-min,
+.asistente-popup,
+.boton-microfono {
+  display: none !important;
+}
+
 .asistente-container {
     position: fixed;
     bottom: 13vw;

@@ -14,15 +14,50 @@
   display: none;
 }
 
+.en-home {
+  display: none !important;
+}
+
+
 /* Estilo general para la barra de navegación */
 .navbar {
   display: flex;
-  flex-direction: column; /* Ajustar para que la barra se vea bien en escritorio */
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
-  padding: 10px;
-  background-color: #fff200; /* Color de fondo amarillo */
-  margin-bottom: 0px;
+  padding: 2px 4px;
+  background-color: #fff200;
+  margin-bottom: 0;
+  min-height: 60px;
+  height: auto;
+  flex-shrink: 0;
+  overflow: hidden;
+  gap: 2px;
+  line-height: 1;
+}
+
+.columnax {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  height: auto;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.columnas {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 2px;
+  min-width: auto;
+  height: auto;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -40,15 +75,28 @@
 }
 
 .logo-img {
-  width: 20vw; /* Tamaño grande del logo, ajusta según sea necesario */
+  width: 8vw;
+  max-width: 100px;
   height: auto;
-  margin-bottom: 10px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
   transition: all 0.3s ease-in-out;
+  display: block;
 }
 
 .logo-container:hover .logo-img,
 .logo-container:focus .logo-img {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  line-height: 1;
 }
 
   /* Efecto para cuando el usuario está en Home o en /info/*** */
@@ -165,30 +213,53 @@
 .nav-links {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; /* Permite que los íconos y texto se envuelvan en múltiples líneas */
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
-  margin-top: -8px;
-  margin-bottom: -8px;
-
+  margin: 0;
+  padding: 0;
+  gap: 2px;
+  height: auto;
+  line-height: 1;
+  overflow: hidden;
 }
 
   /* texto de los botones */
 .nav-link {
   text-align: center;
-  font-size: 24px;
-  color: rgb(3, 39, 3); /* Color del texto */
-  margin: 10px; /* Margen entre íconos */
-  margin-left: 40px;
-  margin-right: 40px;
+  font-size: 14px;
+  color: rgb(3, 39, 3);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  height: auto;
+  line-height: 1;
+}
+
+.nav-text {
+  display: none;
+}
+
+.correte {
+  display: none !important;
 }
   
 /* Agrupar los iconos en una sola línea para el primer grupo */
 .nav-linky {
   text-align: center;
-  font-size: 33px;
+  font-size: 22px;
   color: #000;
-  margin: 10px; /* Margen entre íconos */
+  margin: 0;
+  padding: 2px 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  height: auto;
+  line-height: 1;
 }
 
 /* Mostrar el texto a la derecha del ícono en escritorio */
@@ -264,25 +335,167 @@
 .columna3 {
   display: flex;
   flex-direction: row;
+  align-items: center;
   position: relative;
-  top: 6px;
+  top: 0;
+  gap: 2px;
 }
 
 .columna2 {
   position: relative;
-  top: -3px;
+  top: 0;
   max-width: 80%;
-  left: -6%;
+  left: 0;
 }
 
 .wraper {
-  width: 100vw; /* Ocupa todo el ancho de la pantalla */
-  margin-left: 0; /* Asegúrate de que no haya márgenes a la izquierda */
-  margin-right: 0; /* Asegúrate de que no haya márgenes a la derecha */
-  display: flez;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
   flex-direction: row;
-  justify-content: stretch;
+  justify-content: space-around;
+  align-items: center;
   flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 2px;
+  box-sizing: border-box;
+  height: auto;
+  line-height: 1;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #fff200;
+  padding: 4px 6px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 90;
+  height: auto;
+  overflow: hidden;
+}
+
+.bottom-bar.bottom-bar--hidden {
+  display: none;
+}
+
+.split-action-button {
+  position: fixed;
+  right: 14px;
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #7b2cbf 49%, #9d4edd 49%, #9d4edd 100%);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 100;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(123, 44, 191, 0.35);
+  transition: bottom 200ms ease, transform 180ms ease;
+}
+
+.split-action-button:hover {
+  transform: translateY(-1px);
+}
+
+.split-action-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(123, 44, 191, 0.98) 48%, rgba(157, 78, 237, 0.98) 48%);
+}
+
+.split-button-part {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  z-index: 1;
+  padding: 0 4px;
+  line-height: 1.1;
+}
+
+.split-button-part.split-left {
+  top: 6px;
+  left: 4px;
+  justify-content: flex-start;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.split-button-part.split-right {
+  bottom: 6px;
+  right: 4px;
+  justify-content: flex-end;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.right-sidebar {
+  position: fixed;
+  right: 14px;
+  width: 62px;
+  background: rgba(83, 45, 126, 0.96);
+  border-radius: 28px;
+  padding: 8px 6px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(20px);
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-sidebar.right-sidebar--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.sidebar-icon-button {
+  all: unset;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.sidebar-icon-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(-2px);
+}
+
+.sidebar-icon-button--toggle-bottom {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.sidebar-icon-button svg {
+  font-size: 22px;
+}
+
+.sidebar-item--toggle-bottom {
+  background: rgba(255, 255, 255, 0.16);
 }
 
 /* M E D I A  --  Q U E R Y S */

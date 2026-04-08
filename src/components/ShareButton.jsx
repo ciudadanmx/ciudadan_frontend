@@ -14,6 +14,9 @@ import logoCuadro from '../assets/logo_cuadro.png';
 export default function ShareButton({
   url, // opcional; si no se pasa usa window.location.href
   mensaje = "Mira esto en Marihuanas.club 👇",
+  open: openProp,
+  onOpenChange,
+  showButton = true,
 }) {
   // ruta local del archivo que subiste (nos la solicitaste usar)
   const uploadedFileUrl = logoCuadro;
@@ -25,11 +28,21 @@ export default function ShareButton({
       ? `${MAINDOMAIN}/${window.location.pathname}${window.location.search}${window.location.hash}`
       : MAINDOMAIN;
 
-  const [open, setOpen] = useState(false);
+  const [openState, setOpenState] = useState(false);
   const [copiado, setCopiado] = useState(false);
   const [shareError, setShareError] = useState(null);
   const listRef = useRef(null);
   const firstItemRef = useRef(null);
+
+  const isControlled = typeof openProp === 'boolean';
+  const open = isControlled ? openProp : openState;
+  const setOpen = (value) => {
+    if (isControlled) {
+      onOpenChange?.(value);
+    } else {
+      setOpenState(value);
+    }
+  };
 
   // Centrar modal, scroll top, focus primer item
   useEffect(() => {
@@ -348,19 +361,21 @@ glowText: {
   return (
     <>
       {/* Botón flotante — ahora con clase para animaciones */}
-      <div style={styles.buttonWrapper}>
-        <button
-          aria-label="Compartir"
-          onClick={() => setOpen(true)}
-          style={styles.mainButton}
-          className={`ciudadan-share-btn ${open ? "open" : ""}`} // <-- agregada para control mobile (open)
-        >
-          {/* Los spans sirven para efectos visuales extra (opcionalmente pueden ser pseudo) */}
-          <span className="ciud-glow" aria-hidden="true" />
-          <FiShare2 size={18} />
-          <span className="label">Compartir</span>
-        </button>
-      </div>
+      {showButton && (
+        <div style={styles.buttonWrapper}>
+          <button
+            aria-label="Compartir"
+            onClick={() => setOpen(true)}
+            style={styles.mainButton}
+            className={`ciudadan-share-btn ${open ? "open" : ""}`} // <-- agregada para control mobile (open)
+          >
+            {/* Los spans sirven para efectos visuales extra (opcionalmente pueden ser pseudo) */}
+            <span className="ciud-glow" aria-hidden="true" />
+            <FiShare2 size={18} />
+            <span className="label">Compartir</span>
+          </button>
+        </div>
+      )}
 
       {/* Modal (idéntico a tu implementación, sin cambios en lógica) */}
       {open && (
