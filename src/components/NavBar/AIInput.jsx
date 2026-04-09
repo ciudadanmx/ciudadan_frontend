@@ -50,7 +50,7 @@ const AIInput = () => {
         type="text"
         placeholder="Buscar/Chatear/Controlar con I.A."
         className="nav-input"
-        style={{ width: "333px", maxWidth: "400px", padding: "8px", top: "-11px" }}
+        style={{ padding: "8px", top: "-11px" }}
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />

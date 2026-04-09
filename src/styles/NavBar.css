@@ -45,7 +45,8 @@
   line-height: 1;
   margin: 0;
   padding: 0;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .columnas {
@@ -263,15 +264,17 @@
 }
 
 .nav-input {
-  min-width: 30vw; /* O ajusta el valor según sea necesario */
-  max-width: 400px; /* Establece un ancho máximo si lo deseas */
+  width: min(333px, 42vw);
+  min-width: 0;
+  max-width: 100%;
   padding: 2px; /* Añade padding para mejorar la apariencia */
   border: 1px solid #ccc; /* Añade un borde para que sea más visible */
   border-radius: 24px; /* Opcional: añade bordes redondeados */
   box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
   margin-top: -30px;
-  margin-left: 20px;
+  margin-left: 8px;
 }
+
 
 /* Íconos de la Fila Inferior de la NavBar */
 .small-icon {
@@ -411,8 +414,8 @@
 .columnas {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  min-width: 100%;
+  justify-content: flex-start;
+  min-width: 0;
 
 }
 
@@ -423,6 +426,8 @@
   position: relative;
   top: 0;
   gap: 2px;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 /* Más espacio entre iconos en escritorio */
@@ -435,8 +440,10 @@
 .columna2 {
   position: relative;
   top: 0;
-  max-width: 80%;
+  max-width: 100%;
   left: 0;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .wraper {
@@ -638,9 +645,9 @@
     margin: 0; /* Sin margen entre íconos en móvil */
   }
 
-    .columna3 {
+  .columna3 {
     gap: 1.5vw !important;
-    margin-right: -6vw !important;
+    margin-right: 0 !important;
   }
 
   .correte {
@@ -696,17 +703,22 @@
     display: none;
   }
   .columna3 {
-    gap: 20px !important;
+    gap: 12px !important;
   }
 
 }
 
-/* Pantallas muy pequeñas en dispositivos Móviles */
-@media (max-width: 378px) {
-  
-  .nav-text {
-    display: none !important; /* Mostrar el texto debajo del ícono en escritorio */
+@media (max-width: 920px) {
+  .columna2 {
+    display: none;
   }
+
+  .columnas {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 378px) {
   /*íconos */
   .nav-link {
     font-size: 12px;
