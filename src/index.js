@@ -17,7 +17,6 @@ import Rutas from './Routes/index.jsx';
 import Asistente from './components/Asistente/Asistente';
 import { SnackbarProvider } from 'notistack';
 import { NotificationsProvider } from './Contexts/NotificationsContext';
-import Footer from './components/Footer/Footer.jsx';
 import './styles/index.css';
 
 //import { findUserInStrapi } from './utils/strapiUserService.jsx';
@@ -73,8 +72,6 @@ const AppWrapper = () => {
         <Asistente />
       </AuthGate>
       </Box>
-      
-      <Footer />
       </Box>
     </>
   );
