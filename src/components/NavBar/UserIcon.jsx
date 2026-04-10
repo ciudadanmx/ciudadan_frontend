@@ -64,7 +64,7 @@ const UserIcon = ({ handleLogout, isProfileMenuOpen, setIsProfileMenuOpen, handl
   return (
     <span className="nav-linky" ref={containerRef}>
       <div className="cuenta-icon-container" onClick={onIconClick}>
-        <img
+        <img 
           src={imageSrc}
           alt="Profile"
           className="cuenta-icon"
@@ -86,5 +86,6 @@ const UserIcon = ({ handleLogout, isProfileMenuOpen, setIsProfileMenuOpen, handl
     </span>
   );
 };
+
 
 export default UserIcon;
