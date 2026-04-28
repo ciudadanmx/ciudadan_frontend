@@ -7,7 +7,7 @@ import Probador from '../components/Testers/Probador.jsx';
 // ---------- Páginas principales ----------
 import HomeRoute from '../Pages/HomeRoute.jsx';
 import GanaRoute from '../Pages/GanaRoute.jsx';
-import TaxisRoute from '../Routes/Pages/TaxisRoute.jsx';
+import TaxisRoute from '../Pages/TaxisRoute.jsx';
 import RestaurantesRoute from '../Pages/RestaurantesRoute.jsx';
 import MarketRoute from '../Pages/MarketRoute.jsx';
 import Rompecabezas from '../components/Academia/Rompecabezas.jsx';
@@ -144,9 +144,9 @@ import TuAbogado from '../Pages/Legal/TuAbogado.jsx';
 import Activismo from '../Pages/Legal/Activismo.jsx';
 import Compras from "../Pages/MarketPlace/Compras.jsx";
 import UsuarioPage from '../Pages/Usuarios/UsuarioPage';
-import FloratecaLayout from '../components/Florateca/FloratecaLayout.jsx';
-import HomeViewModelWrapper from '../components/Florateca/home/HomeViewModelWrapper.jsx';
-import DetailViewModelWrapper from '../components/Florateca/detail/DetailViewModelWrapper.jsx';
+
+
+import PreRegistroConductor2 from '../components/Taxis/PreRegistroConductor2.jsx';
 
 // ---------- Wrappers (usar useParams) ----------
 const EditarContenidoWrapper = () => {
@@ -242,6 +242,11 @@ const Rutas = () => (
     <Route path="/cartera/:moneda" element={<OpWalletRoute />} />
     <Route path="/cartera" element={<OpWalletRoute />} />
     <Route path="/comprar-tokens" element={<OpWalletRoute />} />
+    
+    
+    
+    
+    <Route path="/taxis/preregistrar" element={<PreRegistroConductor2 />} />
 
     {/* Academia / Coowork */}
     <Route path="/academia" element={<Rompecabezas />} />
@@ -337,18 +342,7 @@ const Rutas = () => (
     <Route path="/referir/*" element={<Referir />} />
     <Route path="/agregar-club/:club" element={<Referir />} />
 
-    {/* Herramientas / Florateca / Juegos */}
-    <Route path="/herramientas" element={<HerramientasPage />} />
-    <Route path="/herramientas/test-consumo-responsable" element={<TestConsumoResponsable />} />
-    <Route path="/herramientas/maria" element={<Maria />} />
-    <Route path="/herramientas/kitautocultivo" element={<KitAutoCultivo />} />
-    <Route path="/herramientas/florateca" element={<FloratecaLayout />}>
-      <Route index element={<HomeViewModelWrapper />} />
-      <Route path="strain/:id" element={<DetailViewModelWrapper />} />
-    </Route>
-    <Route path="/herramientas/juegos" element={<Juegos />} />
-    <Route path="/herramientas/juego-static" element={<JuegoStatic />} />
-
+    
     {/* Misc / Tests */}
     <Route path="/notificationtester" element={<NotificationTester />} />
     <Route path="/precargador" element={<PreCargador />} />

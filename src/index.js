@@ -19,16 +19,17 @@ import { SnackbarProvider } from 'notistack';
 import { NotificationsProvider } from './Contexts/NotificationsContext';
 import './styles/index.css';
 
-//import { findUserInStrapi } from './utils/strapiUserService.jsx';
-// IMPORTA ScrollToTop
 import ScrollToTop from './components/ScrollToTop.jsx';
 import AuthGate from './components/AuthGate.jsx';
+import { Capacitor } from '@capacitor/core';
 
 const domain    = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId  = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const audience  = process.env.REACT_APP_AUTH0_AUDIENCE;
 
-// Componente wrapper que decide si mostrar NavBar u ocultarla según la ruta
+// ==============================
+// APP WRAPPER
+// ==============================
 const AppWrapper = () => {
   const { isLoading } = useAuth0();
   const location = useLocation();
@@ -39,7 +40,6 @@ const AppWrapper = () => {
 
   const isWikiRoute = location.pathname.startsWith('/wiki');
 
-  //normalizador de rutas para seleccionar sección
   const sectionMap = {
     productos: 'market',
     contenido: 'contenidos',
@@ -48,11 +48,11 @@ const AppWrapper = () => {
     curso: 'cursos',
     referir: 'comunidad',
   };
+
   const pathSection = location.pathname.split('/').filter(Boolean)[0];
   const siteSection = sectionMap[pathSection] ?? pathSection ?? '';
 
   return (
-    <>
     <Box
       id="marihuanasclub-app"
       sx={{
@@ -63,24 +63,30 @@ const AppWrapper = () => {
         overflowX: "hidden",
       }}
     >
-      
       {!isWikiRoute && <NavBar siteSection={siteSection} />}
       <ScrollToTop behavior="auto" targetId="marihuanasclub-app" />
+
       <Box sx={{ flex: 1 }}>
-      <Rutas />
-      <AuthGate>
-        <Asistente />
-      </AuthGate>
+        <Rutas />
+        <AuthGate>
+          <Asistente />
+        </AuthGate>
       </Box>
-      </Box>
-    </>
+    </Box>
   );
 };
 
-
-//Auth0
+// ==============================
+// AUTH0 PROVIDER (FIXED)
+// ==============================
 const Auth0ProviderWithNavigate = ({ children }) => {
   const navigate = useNavigate();
+
+  const isNative = Capacitor.isNativePlatform();
+
+  const redirectUri = isNative
+    ? 'com.ciudadan.org://callback'
+    : window.location.origin;
 
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || '/', { replace: true });
@@ -93,7 +99,7 @@ const Auth0ProviderWithNavigate = ({ children }) => {
       authorizationParams={{
         audience,
         scope: 'openid profile email offline_access',
-        redirect_uri: window.location.origin,
+        redirect_uri: redirectUri,
       }}
       cacheLocation="localstorage"
       useRefreshTokens
@@ -104,33 +110,31 @@ const Auth0ProviderWithNavigate = ({ children }) => {
   );
 };
 
-
-//RENDER
+// ==============================
+// RENDER
+// ==============================
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <Router>
-    <Auth0ProviderWithNavigate>
-      <AuthProvider>
-        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="es">
-          <RolesProvider>
-            <ClubProvider>
-            <NotificationsProvider>
-              <CartProvider>
-                
-                  <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
-                   
+      <Auth0ProviderWithNavigate>
+        <AuthProvider>
+          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="es">
+            <RolesProvider>
+              <ClubProvider>
+                <NotificationsProvider>
+                  <CartProvider>
+                    <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
                       <AppWrapper />
-                   
-                  </SnackbarProvider>
-                
-              </CartProvider>
-            </NotificationsProvider>
-            </ClubProvider>
-          </RolesProvider>
-        </LocalizationProvider>
-      </AuthProvider>
-    </Auth0ProviderWithNavigate>
+                    </SnackbarProvider>
+                  </CartProvider>
+                </NotificationsProvider>
+              </ClubProvider>
+            </RolesProvider>
+          </LocalizationProvider>
+        </AuthProvider>
+      </Auth0ProviderWithNavigate>
     </Router>
   </React.StrictMode>
 );

@@ -84,7 +84,8 @@ export default function AuthGate({ children }) {
 
           // Redirigimos a /registrar
           // replace: true evita que pueda regresar con "back"
-          navigate('/registrar', { replace: true });
+          //navigate('/registrar', { replace: true });
+          setChecking(false);
           return;
         }
 

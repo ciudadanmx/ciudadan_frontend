@@ -1,8 +1,16 @@
 import React from 'react';
 import { Modal, Box, Typography, Button, IconButton } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const RequisitosConductor = ({ modalOpen, setModalOpen }) => {
-  if (!modalOpen) return null; // Evita render vacío si el modal no está abierto
+  const navigate = useNavigate();
+
+  if (!modalOpen) return null;
+
+  const handleContinuar = () => {
+    setModalOpen(false);
+    navigate('/taxis/preregistrar');
+  };
 
   return (
     <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
@@ -23,7 +31,6 @@ const RequisitosConductor = ({ modalOpen, setModalOpen }) => {
           position: "relative",
         }}
       >
-        {/* Botón de cierre */}
         <IconButton
           onClick={() => setModalOpen(false)}
           sx={{
@@ -44,40 +51,65 @@ const RequisitosConductor = ({ modalOpen, setModalOpen }) => {
           <span className="material-icons">close</span>
         </IconButton>
 
-        <Typography variant="h4" sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}>
-          Requisitos para Taxistas
+        <Typography
+          variant="h4"
+          sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}
+        >
+          Requisitos para Conductores
         </Typography>
 
-        <Typography>
-          <b>Para registrarte en Ciudadan Taxi, debes cumplir con los siguientes requisitos:</b>
+        <Typography sx={{ mb: 2 }}>
+          <b>Ciudadan Taxi está abierto para distintos tipos de conductores</b>, siempre que cumplan con un proceso básico de verificación para mantener la seguridad de los pasajeros y la legalidad del servicio.
+        </Typography>
+
+        <Typography sx={{ mb: 1 }}>
+          <b>Documentos y requisitos generales:</b>
         </Typography>
 
         <ul>
-          <li>Ser conductor de un taxi concesionado en la Ciudad de México.</li>
-          <li>Tener concesión vigente y actualizada.</li>
-          <li>Poseer licencia de conducir tipo B o E.</li>
-          <li>Contar con tarjetón de identificación oficial.</li>
-          <li>Tener tarjeta de circulación al día.</li>
+          <li>Identificación oficial vigente.</li>
+          <li>Licencia de conducir vigente.</li>
+          <li>Datos de contacto actualizados.</li>
+          <li>Vehículo en condiciones adecuadas de operación y presentación.</li>
         </ul>
 
-        <Typography>
-          <b>Proceso de Verificación:</b>
+        <Typography sx={{ mt: 2, mb: 1 }}>
+          <b>Según tu tipo de actividad, también te pediremos:</b>
         </Typography>
 
         <ul>
-          <li>Tras completar tu registro, podrás agendar una visita con uno de nuestros representantes.</li>
-          <li>El representante verificará la autenticidad de tus documentos.</li>
-          <li>Una vez aprobados, podrás comenzar a recibir viajes en la aplicación.</li>
+          <li>Documentación del vehículo vigente.</li>
+          <li>Información que permita verificar tu relación con la unidad que vas a operar.</li>
+          <li>Validación interna de tu perfil antes de activarlo.</li>
         </ul>
 
         <Typography sx={{ mt: 2 }}>
-          <b>Importante:</b> Si no cumples con los requisitos o proporcionas información falsa, tu cuenta será suspendida.
+          <b>Proceso de verificación:</b>
         </Typography>
 
-        <Button 
-          onClick={() => setModalOpen(false)} 
-          sx={{ mt: 3, display: "block", mx: "auto", bgcolor: "gray", color: "white", '&:hover': { bgcolor: "darkred" } }}>
-          Cerrar
+        <ul>
+          <li>Completa tu preregistro en la plataforma.</li>
+          <li>Sube tus documentos para revisión.</li>
+          <li>Espera la validación antes de comenzar a recibir solicitudes.</li>
+        </ul>
+
+        <Typography sx={{ mt: 2 }}>
+          <b>Importante:</b> Si la información no coincide o algún documento resulta inválido, tu registro podrá ser rechazado o suspendido.
+        </Typography>
+
+        <Button
+          onClick={handleContinuar}
+          sx={{
+            mt: 3,
+            display: "block",
+            mx: "auto",
+            bgcolor: "#fff200",
+            color: "black",
+            fontWeight: "bold",
+            '&:hover': { bgcolor: "#e6d800" }
+          }}
+        >
+          Continuar
         </Button>
       </Box>
     </Modal>
