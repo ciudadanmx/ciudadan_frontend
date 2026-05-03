@@ -19,7 +19,6 @@ import { SnackbarProvider } from 'notistack';
 import { NotificationsProvider } from './Contexts/NotificationsContext';
 import './styles/index.css';
 
-import ScrollToTop from './components/ScrollToTop.jsx';
 import AuthGate from './components/AuthGate.jsx';
 import { Capacitor } from '@capacitor/core';
 
@@ -64,7 +63,6 @@ const AppWrapper = () => {
       }}
     >
       {!isWikiRoute && <NavBar siteSection={siteSection} />}
-      <ScrollToTop behavior="auto" targetId="marihuanasclub-app" />
 
       <Box sx={{ flex: 1 }}>
         <Rutas />
@@ -98,7 +96,7 @@ const Auth0ProviderWithNavigate = ({ children }) => {
       clientId={clientId}
       authorizationParams={{
         audience,
-        scope: 'openid profile email offline_access',
+        scope: 'openid profile email',
         redirect_uri: redirectUri,
       }}
       cacheLocation="localstorage"

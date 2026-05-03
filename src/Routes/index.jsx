@@ -49,7 +49,7 @@ import LmAi from '../components/Asistente/LmAi.jsx';
 import TTS from '../components/Tts.jsx';
 import TextToSpeech from '../components/TextToSpeech.jsx';
 import StripeSuccessRedirect from '../components/StripeSuccessRedirect.jsx';
-import AgregarClubWrapper from '../components/Clubs/AgregarClubWrapper.jsx';
+//import AgregarClubWrapper from '../components/Clubs/AgregarClubWrapper.jsx';
 
 import RegistroTienda from '../Pages/MarketPlace/RegistroTienda.jsx';
 import AgregarProducto from '../Pages/MarketPlace/AgregarProducto.jsx';
@@ -70,15 +70,8 @@ import Evento from '../Pages/Eventos/Evento.jsx';
 import CrearEvento from '../Pages/Eventos/CrearEvento.jsx';
 import AdminDashboard from '../Pages/Admin/AdminDashboard.jsx';
 import RootDashboard from '../Pages/Admin/RootDashboard.jsx';
-import LegalPage from '../Pages/Legal/LegalPage.jsx';
-import Prueba from '../Pages/Prueba.jsx';
 
-import TestConsumoResponsable from '../Pages/Herramientas/TestConsumoResponsable.jsx';
-import HerramientasPage from '../Pages/Herramientas/HerramientasPage.jsx';
-import Juegos from '../Pages/Herramientas/Juegos.jsx';
-import JuegoStatic from '../Pages/Herramientas/JuegoStatic.jsx';
-import KitAutoCultivo from '../Pages/Herramientas/KitAutoCultivo.jsx';
-import Maria from '../Pages/Herramientas/Maria.jsx';
+import Prueba from '../Pages/Prueba.jsx';
 
 // Cartera / Coowork / Academia
 import ITokens from '../Pages/Cartera/ITokens.jsx';
@@ -92,19 +85,7 @@ import Conductor from '../components/Taxis/ConductorDebug.jsx';
 import TripView from '../components/Taxis/TripView.jsx';
 
 // Clubs / Club actions
-import MiClub from '../Pages/Clubs/MiClub.jsx';
-import RequisitosJardinero from '../Pages/Clubs/RequisitosJardinero.jsx';
-import TiposClubs from '../Pages/Clubs/TiposClubs.jsx';
-import Sembrar from '../components/Clubs/ClubActions/Sembrar.jsx';
-import IngresarSemillas from '../components/Clubs/ClubActions/IngresarSemillas.jsx';
-import GestionClub from '../components/Clubs/GestionClub.jsx';
-import Club from '../Pages/Clubs/Club.jsx';
 import QrScanner from '../components/Clubs/QrScanner.jsx';
-import EscribirBitacora from '../Pages/Clubs/EscribirBitacora.jsx';
-import RegistroBitacora from '../Pages/Clubs/RegistroBitacora.jsx';
-import EditarRegistroBitacora from '../Pages/Clubs/EditarRegistroBitacora.jsx';
-import ClubCreado from '../components/Clubs/steps/ClubCreado.jsx';
-import AfiliarseClubCultivo from '../Pages/Clubs/AfiliarseClubClultivo.jsx';
 
 // Membresías extras
 import MembershipCheckout from '../components/Membresias/MembershipCheckout.jsx';
@@ -135,18 +116,14 @@ import RegistroTiendaPage from '../Pages/MarketPlace/RegistroTienda.jsx';
 import ReferirAlias from '../Pages/Comunidad/Referir.jsx';
 
 import FinalizarCompra from '../Pages/MarketPlace/FinalizarCompra.jsx';
-import GeneradorAmparo from '../Pages/Legal/GeneradorAmparo.jsx';
-import GeneradorEscritoLibre from '../Pages/Legal/GeneradorEscritoLibre.jsx';
-import Amparo from '../Pages/Legal/Amparo.jsx';
-import GeneradorActaYEstatutos from '../Pages/Legal/GeneradorActaYEstatutos.jsx';
-import InstruccionesActa from '../Pages/Legal/InstruccionesActa.jsx';
-import TuAbogado from '../Pages/Legal/TuAbogado.jsx';
-import Activismo from '../Pages/Legal/Activismo.jsx';
+
 import Compras from "../Pages/MarketPlace/Compras.jsx";
 import UsuarioPage from '../Pages/Usuarios/UsuarioPage';
 
 
 import PreRegistroConductor2 from '../components/Taxis/PreRegistroConductor2.jsx';
+import ConductoresAgencia from '../components/Cowork/ConductoresAgencia.jsx';
+import TestToken from '../components/TestToken.jsx';
 
 // ---------- Wrappers (usar useParams) ----------
 const EditarContenidoWrapper = () => {
@@ -208,6 +185,9 @@ const Rutas = () => (
     <Route path="/taxis/pasajero/registro" element={<RegistroPasajero />} />
     <Route path="/taxis/pasajero/viaje" element={<Pasajero />} />
     <Route path="/taxis/viaje/:travelId" element={<TripView />} />
+
+    <Route path="/herramientas/agencia/conductores" element={<ConductoresAgencia />} />
+
 
     {/* Food / Restaurantes */}
     <Route path="/food" element={<RestaurantesRoute />} />
@@ -282,18 +262,10 @@ const Rutas = () => (
     <Route path="/eventos" element={<EventosPage />} />
 
     {/* Clubs / Bitácoras */}
-    <Route path="/club/bitacoras/:registro" element={<RegistroBitacora />} />
-    <Route path="/club/bitacora/editar/:registro" element={<EditarRegistroBitacora />} />
-    <Route path="/club/bitacora/escribir" element={<EscribirBitacora />} />
-    <Route path="/clubs/miclub/*" element={<MiClub />} />
-    <Route path="/clubs/:nombre_club" element={<Club />} />
-    <Route path="/clubs/requisitos-jardinero" element={<RequisitosJardinero />} />
-    <Route path="/clubs/afiliarseclub/:club" element={<AfiliarseClubCultivo />} />
-    <Route path="/clubs/agregar-club/cultivo" element={<AgregarClubWrapper tipo="cultivo" />} />
-    <Route path="/clubs/tipos-clubs" element={<TiposClubs />} />
+    
     <Route path="/clubs/miclub/qrscanner" element={<QrScanner />} />
-    <Route path="/clubs/agregar-club" element={<AgregarClubWrapper />} />
-    <Route path="/club-creado" element={<ClubCreado />} />
+    
+    
 
     {/* Contenidos / Cursos */}
     <Route path="/contenidos/agregar-contenido" element={<AgregarContenido />} />
@@ -310,7 +282,7 @@ const Rutas = () => (
     {/* Membresías */}
     <Route path="/membresias" element={<Membresias />} />
     <Route path="/membresias/cultivo/order" element={<NumeroPlantas />} />
-    <Route path="/membresias/jardinero/order" element={<RequisitosJardinero />} />
+    
     <Route path="/membresias/pagar/*" element={<ProbarMembresia />} />
     <Route path="/membresias/pago/plan/:planId" element={<ProbarMembresia />} />
     <Route path="/membresias/adquirir/*" element={<MembershipCheckout />} />
@@ -323,14 +295,11 @@ const Rutas = () => (
     <Route path="/root/*" element={<RootDashboard />} />
     <Route path="/admin/*" element={<AdminDashboard />} />
 
-    {/* Legal */}
-    <Route path="/legal" element={<LegalPage />} />
-    <Route path="/legal/rutalegal" element={<LegalPage />} />
-    <Route path="/legal/misdocumentos" element={<LegalPage />} />
+
    
 
     {/* Comunidad */}
-    <Route path="/comunidad" element={<ComunidadPage />} />
+    <Route path="/comunidad" element={<ComunidadRoute />} />
     <Route path="/comunidad/nuevo-anuncio-programado" element={<Anuncios />} />
     <Route path="/comunidad/mis-anuncios" element={<Anuncios />} />
     <Route path="/comunidad/mis-anuncios/:slug" element={<Anuncios />}>
@@ -354,6 +323,8 @@ const Rutas = () => (
     {/* Fallbacks / aliases */}
     <Route path="/marketplaces" element={<MarketPlace />} />
     <Route path="/market" element={<MarketPlace />} />
+
+    <Route path="/testoken" element={<TestToken />} />
   </Routes>
 );
 

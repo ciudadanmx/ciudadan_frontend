@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/GanarConCiudadan.css';
 
 // Importa las imágenes
@@ -20,6 +20,8 @@ import agencia from '../../assets/agencia.png';
 import ciudadaneando from '../../assets/ciudadaneando.png';
 
 const Ganar = () => {
+  const navigate = useNavigate();
+
   const opciones = [
     { 
       titulo: '🎯 Anuncios/Encuestas:', 
@@ -28,7 +30,8 @@ const Ganar = () => {
       boton: '🎯 Ver Anuncios... ',
       imagen: publicidad,
       monedas: [mxn],
-      claseimagen: 'opcion-imagen'
+      claseimagen: 'opcion-imagen',
+      url: '/ver-anuncios'
     },
     { 
       titulo: '💰 RENTA UNIVERSAL', 
@@ -37,7 +40,8 @@ const Ganar = () => {
       descripcionCompleta: 'Tu participación apoya la generación de riqueza económica y la mejora de la comunidad. <br /> <br /> Gozamos de múltiples fuentes y modelos de financiamiento, sin embargo uno de nuestros pilares es la publicidad no invasiva, vista a demanda y remunerada, desplazando el total de los Laborys a los usuarios. Contamos con nuestra propia visión y versión de una renta crypto universal, la nuestra es a cambio de ver anuncios e interactuar con ellos. <br /> <br /> Aprovecha solo por lanzamiento: Recibe una renta mensual de 6,000 Laborys. ', 
       imagen: renta,
       monedas: [labory],
-      claseimagen: 'opcion-imagen-ensanchada'
+      claseimagen: 'opcion-imagen-ensanchada',
+      url: '/renta-universal'
     },
     { 
       titulo: '▶ Tareas Académicas:', 
@@ -46,7 +50,8 @@ const Ganar = () => {
       boton: '▶ Ver Desafíos... ',
       imagen: academicas,
       monedas: [mxn, labory],
-      claseimagen: 'opcion-imagen'
+      claseimagen: 'opcion-imagen',
+      url: '/academia'
     },
     { 
       titulo: '🏫 Becas:', 
@@ -55,7 +60,8 @@ const Ganar = () => {
       boton: '🏫 Incríbete Ya !!',
       imagen: becas,
       monedas: [labory],
-      claseimagen: 'opcion-imagen-ensanchada'
+      claseimagen: 'opcion-imagen-ensanchada',
+      url: '/academia'
     },
     { 
       titulo: '📷 Creación de Contenido:', 
@@ -64,7 +70,8 @@ const Ganar = () => {
       boton: ' 📷 Empezar a crear !!',
       imagen: contenidos,
       monedas: [mxn],
-      claseimagen: 'opcion-imagen-ensanchada'
+      claseimagen: 'opcion-imagen-ensanchada',
+      url: '/coowork/especializadas/contenidos'
     },
     { 
       titulo: '❓ Tareas Generales:', 
@@ -73,7 +80,8 @@ const Ganar = () => {
       boton: '❓ Descubrir misiones !!',
       imagen: generales,
       monedas: [mxn, labory],
-      claseimagen: 'opcion-imagen'
+      claseimagen: 'opcion-imagen',
+      url: '/coowork/generales'
     },
     { 
       titulo: '♻ Reciclando:', 
@@ -82,7 +90,8 @@ const Ganar = () => {
       boton: '♻  Colabora y Gana !!',
       imagen: reciclando,
       monedas: [labory],
-      claseimagen: 'opcion-imagen'
+      claseimagen: 'opcion-imagen',
+      url: '/reciclando'
     },
     { 
       titulo: '📢 Refiriendo:', 
@@ -91,7 +100,8 @@ const Ganar = () => {
       boton: '📢 Comenzar a Ganar !!',
       imagen: refiriendo,
       monedas: [mxn],
-      claseimagen: 'opcion-imagen'
+      claseimagen: 'opcion-imagen',
+      url: '/referidos'
     },
     { 
       titulo: '👨‍🏫 Enseñando:', 
@@ -100,7 +110,8 @@ const Ganar = () => {
       boton: '👨‍🏫  Afiliarse como Master de Ciudadan.',
       imagen: ensenando,
       monedas: [mxn, labory],
-      claseimagen: 'opcion-imagen-ensanchada'
+      claseimagen: 'opcion-imagen-ensanchada',
+      url: '/coowork/concejo'
     },
     { 
       titulo: '🚘 Conduciendo:', 
@@ -110,7 +121,7 @@ const Ganar = () => {
       boton: '🚘 Comenzar a Conducir !!',
       monedas: [mxn, labory],
       claseimagen: 'opcion-imagen-ensanchada-redondeada',
-      url: '/taxis'
+      url: '/taxis/conductor/preregistro#'
     },
     { 
       titulo: '💡 Abriendo tu Agencia Digital i.A. Instantánea', 
@@ -120,7 +131,7 @@ const Ganar = () => {
       imagen: agencia,
       monedas: [labory],
       claseimagen: 'opcion-imagen-ensanchada',
-      url: '/ganar/agencia'
+      url: '/agencias'
     },
     { 
       titulo: '💲 Invirtiendo Inteligente', 
@@ -130,7 +141,7 @@ const Ganar = () => {
       monedas: [mxn],
       claseimagen: 'opcion-imagen-ensanchada',
       boton: '💲 Ir a Zona de Tokens.',
-      url: '/cartera/itokens' // <- aquí está la url que pediste
+      url: '/cartera/cit'
     },
     { 
       titulo: '🤝 Ciudadaneando', 
@@ -139,7 +150,8 @@ const Ganar = () => {
       boton: '🤝 Ciudadanear Ahora !!',
       imagen: ciudadaneando,
       monedas: [mxn],
-      claseimagen: 'opcion-imagen-ensanchada-redondeada'
+      claseimagen: 'opcion-imagen-ensanchada-redondeada',
+      url: '/comunidad/ciudadaneando'
     },
   ];
 
@@ -147,6 +159,10 @@ const Ganar = () => {
 
   const handleToggle = (index) => {
     setOpenMap(prev => ({ ...prev, [index]: !prev[index] }));
+  };
+
+  const handleNavigate = (url) => {
+    if (url) navigate(url);
   };
 
   return (
@@ -165,13 +181,13 @@ const Ganar = () => {
               {openMap[index] ? 'Mostrar menos' : '... Mostrar más'}
             </p>
 
-            {opcion.url ? (
-              <Link to={opcion.url}>
-                <button type="button" className="opcion-boton">{opcion.boton}</button>
-              </Link>
-            ) : (
-              <button type="button" className="opcion-boton">{opcion.boton}</button>
-            )}
+            <button
+              type="button"
+              className="opcion-boton"
+              onClick={() => handleNavigate(opcion.url)}
+            >
+              {opcion.boton}
+            </button>
 
             <div className="opcion-monedas">
               {opcion.monedas.map((moneda, idx) => (

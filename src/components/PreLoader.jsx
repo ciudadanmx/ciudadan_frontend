@@ -72,7 +72,7 @@ const PreLoader = ({text = ''}) => {
       },
     }}
   >
-    {text || 'Cargando Marihuanas.club'}
+    {text || 'Cargando Ciudadan.org'}
   </Typography>
 </Box>
 

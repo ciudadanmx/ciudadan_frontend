@@ -1,17 +1,15 @@
 import React from 'react';
 import { Box, Typography, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FolderIcon from '@mui/icons-material/Folder';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
-// Colores base
 const neonGreen = '#00ff99';
 const darkGray = '#1a1a1a';
 
-// Card estilo neón
 const ToolCard = styled(Paper)(({ theme }) => ({
   backgroundColor: darkGray,
   color: 'white',
@@ -28,37 +26,56 @@ const ToolCard = styled(Paper)(({ theme }) => ({
 }));
 
 const herramientasMock = [
-  { name: 'Agregar Tarea', icon: <AddTaskIcon fontSize="large" />, link: '/herramientas/agregar-tarea' },
-  { name: 'Calificar Tarea', icon: <CheckCircleIcon fontSize="large" />, link: '/herramientas/calificar-tarea' },
-  { name: 'Carpetas y Enlaces', icon: <FolderIcon fontSize="large" />, link: '/herramientas/carpetas-enlaces' },
-  { name: 'Mi Agencia', icon: <AccountBalanceIcon fontSize="large" />, link: '/herramientas/mi-agencia' },
-
+  {
+    name: 'Agregar Tarea',
+    icon: <AddTaskIcon fontSize="large" />,
+    link: '/herramientas/agregar-tarea',
+  },
+  {
+    name: 'Calificar Tarea',
+    icon: <CheckCircleIcon fontSize="large" />,
+    link: '/herramientas/calificar-tarea',
+  },
+  {
+    name: 'Carpetas y Enlaces',
+    icon: <FolderIcon fontSize="large" />,
+    link: '/herramientas/carpetas-enlaces',
+  },
+  {
+    name: 'Mi Agencia',
+    icon: <AccountBalanceIcon fontSize="large" />,
+    link: '/herramientas/mi-agencia',
+  },
+  {
+    name: 'Conductores',
+    icon: <DirectionsCarIcon fontSize="large" />,
+    link: '/herramientas/agencia/conductores',
+  },
 ];
 
 const HerramientasGrid = () => {
   return (
-  <Box sx={{ flexGrow: 1, mt: 2 }}>
-    <Grid container spacing={2}>
-      {herramientasMock.map((tool, index) => (
-        <Grid item xs={6} sm={3} key={index}>
-          <ToolCard
-            onClick={(e) => {
-              e.preventDefault();
-              window.history.pushState({}, '', tool.link);
-              window.dispatchEvent(new PopStateEvent('popstate'));
-            }}
-          >
-            <Box sx={{ mb: 1 }}>{tool.icon}</Box>
-            <Typography variant="subtitle1" fontWeight={600}>
-              {tool.name}
-            </Typography>
-          </ToolCard>
-        </Grid>
-      ))}
-    </Grid>
-  </Box>
-);
-
+    <Box sx={{ flexGrow: 1, mt: 2 }}>
+      <Grid container spacing={2}>
+        {herramientasMock.map((tool, index) => (
+          <Grid item xs={6} sm={3} key={index}>
+            <ToolCard
+              onClick={(e) => {
+                e.preventDefault();
+                window.history.pushState({}, '', tool.link);
+                window.dispatchEvent(new PopStateEvent('popstate'));
+              }}
+            >
+              <Box sx={{ mb: 1 }}>{tool.icon}</Box>
+              <Typography variant="subtitle1" fontWeight={600}>
+                {tool.name}
+              </Typography>
+            </ToolCard>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
 };
 
 export default HerramientasGrid;

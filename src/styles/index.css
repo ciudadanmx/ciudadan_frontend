@@ -70,13 +70,3 @@ img, svg, video, canvas, iframe {
   }
   
   
-  @media (max-width: 768px) {
-    .home {
-      background-image: url('../assets/ciudadanMobile.jpg'); /* Imagen para pantallas pequeñas */
-      object-fit:cover  ; 
-    }
-  
-    .home img {
-      display: none;
-    }
-  }
