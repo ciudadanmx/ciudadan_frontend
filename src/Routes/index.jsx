@@ -68,8 +68,6 @@ import PreguntasFrecuentes from '../Pages/Info/PreguntasFrecuentes.jsx';
 import EventosPage from '../components/Eventos/index.jsx';
 import Evento from '../Pages/Eventos/Evento.jsx';
 import CrearEvento from '../Pages/Eventos/CrearEvento.jsx';
-import AdminDashboard from '../Pages/Admin/AdminDashboard.jsx';
-import RootDashboard from '../Pages/Admin/RootDashboard.jsx';
 
 import Prueba from '../Pages/Prueba.jsx';
 
@@ -288,13 +286,6 @@ const Rutas = () => (
     <Route path="/activatumembresia" element={<ActivaTuMembresia />} />
     <Route path="/humo" element={<Humo />} />
 
-    {/* Admin / Root */}
-    <Route path="/admin/dashboard" element={<AdminDashboard />} />
-    <Route path="/root/*" element={<RootDashboard />} />
-    <Route path="/admin/*" element={<AdminDashboard />} />
-
-
-   
 
     {/* Comunidad */}
     <Route path="/comunidad" element={<ComunidadRoute />} />
