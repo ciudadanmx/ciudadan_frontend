@@ -4,8 +4,8 @@ import io from 'socket.io-client';
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
 import ConductorRender from './ConductorRender.jsx'; // tu render (el UI que pegaste)
-import taxiIcon from '../../../assets/taxi_marker.png'; // si está en otra ruta ajusta
-import userIcon from '../../../assets/user_marker.png'; // si está en otra ruta ajusta
+import taxiIcon from '../../assets/taxi_marker.png'; // si está en otra ruta ajusta
+import userIcon from '../../assets/user_marker.png'; // si está en otra ruta ajusta
 // NOTA: asegúrate de tener REACT_APP_GOOGLE_MAPS_API_KEY y REACT_APP_SOCKET_URL en .env
 
 const ZOCALO = { lat: 19.432607, lng: -99.133209 };

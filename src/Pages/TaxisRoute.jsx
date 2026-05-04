@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useRoles } from '../Contexts/RolesContext.jsx';
 
-import Conductor from '../Routes/components/Taxis/Conductor.jsx';
-import Pasajero from '../Routes/components/Taxis/Pasajero.jsx';
-import Invitado from '../Routes/components/Taxis/Invitado.jsx';
+import Conductor from '../components/Taxis/Conductor.jsx';
+import Pasajero from '../components/Taxis/Pasajero.jsx';
+import Invitado from '../components/Taxis/Invitado.jsx';
 
 import { Box, CircularProgress, Typography } from '@mui/material';
 import { motion } from 'framer-motion';

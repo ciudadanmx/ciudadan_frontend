@@ -22,7 +22,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/es";
 import mapa from "../assets/mapa.png";
 import paises from "../assets/paises.json";
-import PasajeroTermsModal from "../components/Taxis/PasajeroTermsModal.jsx";
+import PasajeroTermsModal from "../components/Taxiz/PasajeroTermsModal.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const RegistroPasajero = ({ onRegister = () => {} }) => {

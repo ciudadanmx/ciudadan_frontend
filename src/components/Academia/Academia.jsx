@@ -1,8 +1,8 @@
 import React from 'react';
 import { TextField, Button, Container, Typography, Box, Paper, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
-import bannerImage from '../../../assets/banner.jpg'; // Asegúrate de tener esta imagen en tu carpeta de assets
-import scholarshipImage from '../../../assets/scholarship.jpg'; // Asegúrate de tener esta imagen en tu carpeta de assets
+import bannerImage from '../../assets/banner.jpg'; // Asegúrate de tener esta imagen en tu carpeta de assets
+import scholarshipImage from '../../assets/scholarship.jpg'; // Asegúrate de tener esta imagen en tu carpeta de assets
 
 class Academia extends React.Component {
   render() {

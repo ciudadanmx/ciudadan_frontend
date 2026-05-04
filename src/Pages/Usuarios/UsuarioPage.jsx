@@ -37,7 +37,7 @@ export default function UsuarioPage() {
           }}
         >
           <Typography variant="h5" fontWeight="bold" color="success.main" gutterBottom>
-            🌿 Bienvenido a Marihuanas Club
+            🌿 Bienvenido a Ciudadan.org
           </Typography>
           <Typography variant="body1" sx={{ mb: 3 }}>
             Inicia sesión para acceder a tu perfil y generar tu código QR personal.
@@ -55,7 +55,7 @@ export default function UsuarioPage() {
     );
 
   // URL personalizada para el QR (por ejemplo con el ID del usuario)
-  const url = `https://marihuanas.club/perfil/${user?.email}`;
+  const url = `https://ciudadan.org/perfil/${user?.email}`;
 
   return (
     <Box

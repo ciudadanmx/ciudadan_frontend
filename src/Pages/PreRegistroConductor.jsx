@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom"; // Importamos Link para la navegación
 import { useNavigate } from 'react-router-dom';
 import registratutaxi from "../assets/registratutaxi.png";
-import RequisitosConductor from "../components/Taxis/RequisitosConductor.jsx";
+import RequisitosConductor from "../components/Taxiz/RequisitosConductor.jsx";
+//
 
 const CiudadanTaxiLanding = () => {
   const navigate = useNavigate();

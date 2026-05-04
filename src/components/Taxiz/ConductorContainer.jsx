@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../styles/conductor.css';
+import '../../styles/conductor.css';
 
 const ConductorContainer = ({ children }) => {
   return (

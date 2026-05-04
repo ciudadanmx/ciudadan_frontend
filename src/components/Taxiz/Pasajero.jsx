@@ -3,10 +3,10 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import io from 'socket.io-client';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
-import '../../../styles/taxis.css';
-import useGoogleMaps from '../../../hooks/UseGoogleMaps.jsx';
+import '../../styles/taxis.css';
+import useGoogleMaps from '../../hooks/UseGoogleMaps';
 import AcceptTrip from "./AcceptTrip.jsx";
-import taxiIcon from '../../../assets/taxi_marker.png';
+import taxiIcon from '../../assets/taxi_marker.png';
 
 const DEFAULT_FROM = { lat: 19.432608, lng: -99.133209 };
 //const DEFAULT_TO = { lat: 19.432608, lng: -99.133209 };

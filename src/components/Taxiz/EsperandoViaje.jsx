@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Alert, AlertTitle, Button } from "@mui/material";
-import '../../../styles/taxis.css';
+import '../../styles/taxis.css';
 
 const EsperandoViaje = ({ handleConductor }) => {
   return (

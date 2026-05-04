@@ -1,6 +1,6 @@
 // src/components/Taxis/TravelCard.jsx
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { emitEvent } from '../../../lib/socketClient.jsx';
+import { emitEvent } from '../../lib/socketClient.jsx';
 
 /**
  * TravelCard.jsx

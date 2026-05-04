@@ -43,8 +43,8 @@ import Food from '../Pages/Food/Food.jsx';
 import AgregarTarea from '../Pages/Coowork/AgregarTarea.jsx';
 
 import NavBar from '../components/NavBar/NavBar.jsx';
-import RequisitosConductor from '../components/Taxis/RequisitosConductor.jsx';
-import Academia from '../components/Taxis/Academia/Academia.jsx';
+import RequisitosConductor from '../components/Taxiz/RequisitosConductor.jsx';
+import Academia from '../components/Academia/Academia.jsx';
 import LmAi from '../components/Asistente/LmAi.jsx';
 import TTS from '../components/Tts.jsx';
 import TextToSpeech from '../components/TextToSpeech.jsx';
@@ -78,9 +78,9 @@ import Coowork from '../Pages/Coowork/Coowork.jsx';
 import Agencia from '../Pages/Coowork/Agencia.jsx';
 
 // Taxis (pasajero / conductor / trip)
-import Pasajero from '../components/Taxis/Pasajero.jsx';
-import Conductor from '../components/Taxis/ConductorDebug.jsx';
-import TripView from '../components/Taxis/TripView.jsx';
+import Pasajero from '../components/Taxiz/Pasajero.jsx';
+import Conductor from '../components/Taxiz/ConductorDebug.jsx';
+import TripView from '../components/Taxiz/TripView.jsx';
 
 // Clubs / Club actions
 //import QrScanner from '../components/Clubs/QrScanner.jsx';
@@ -119,7 +119,7 @@ import Compras from "../Pages/MarketPlace/Compras.jsx";
 import UsuarioPage from '../Pages/Usuarios/UsuarioPage';
 
 
-import PreRegistroConductor2 from '../components/Taxis/PreRegistroConductor2.jsx';
+import PreRegistroConductor2 from '../components/Taxiz/PreRegistroConductor2.jsx';
 import ConductoresAgencia from '../components/Cowork/ConductoresAgencia.jsx';
 import TestToken from '../components/TestToken.jsx';
 

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react'
 import io from 'socket.io-client';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
-import formaters from '../../../utils/formaters';
+import formaters from '../../utils/formaters.jsx';
 
 import UserLocation from '../Usuarios/UserLocation.jsx';
 import { RolPasajero, RolConductor } from './Roles.jsx';

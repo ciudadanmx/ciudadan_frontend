@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 import "./MapAnimation.css";
 
-import LaboryBadge from '../../LaboryBadge.jsx';
-import mapa from "../../../assets/mapa.png";
+import LaboryBadge from '../LaboryBadge.jsx';
+import mapa from "../../assets/mapa.png";
 import MapAnimation from './MapAnimation.jsx';
 
 const Invitado = () => {  
