@@ -85,12 +85,12 @@ import Conductor from '../components/Taxis/ConductorDebug.jsx';
 import TripView from '../components/Taxis/TripView.jsx';
 
 // Clubs / Club actions
-import QrScanner from '../components/Clubs/QrScanner.jsx';
+//import QrScanner from '../components/Clubs/QrScanner.jsx';
 
 // Membresías extras
 import MembershipCheckout from '../components/Membresias/MembershipCheckout.jsx';
 import ProbarMembresia from '../components/Membresias/ProbarMembresia.jsx';
-import NumeroPlantas from '../components/Membresias/NumeroPlantas.jsx';
+//import NumeroPlantas from '../components/Membresias/NumeroPlantas.jsx';
 import ActivaTuMembresia from '../components/Membresias/ActivaTuMembresia.jsx';
 import Humo from '../components/Membresias/Humo/Humo.jsx';
 
@@ -263,9 +263,7 @@ const Rutas = () => (
 
     {/* Clubs / Bitácoras */}
     
-    <Route path="/clubs/miclub/qrscanner" element={<QrScanner />} />
-    
-    
+      
 
     {/* Contenidos / Cursos */}
     <Route path="/contenidos/agregar-contenido" element={<AgregarContenido />} />
@@ -281,7 +279,7 @@ const Rutas = () => (
 
     {/* Membresías */}
     <Route path="/membresias" element={<Membresias />} />
-    <Route path="/membresias/cultivo/order" element={<NumeroPlantas />} />
+    
     
     <Route path="/membresias/pagar/*" element={<ProbarMembresia />} />
     <Route path="/membresias/pago/plan/:planId" element={<ProbarMembresia />} />

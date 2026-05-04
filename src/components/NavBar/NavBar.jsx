@@ -4,7 +4,16 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 // No socket.io aquí (evitamos duplicados)
 import {
-  FaUniversity, FaDollarSign, FaWallet, FaCarSide, FaHamburger, FaStore
+  FaUniversity,
+  FaDollarSign,
+  FaWallet,
+  FaCarSide,
+  FaHamburger,
+  FaStore,
+  FaArrowDown,
+  FaArrowUp,
+  FaArrowLeft,
+  FaArrowRight
 } from 'react-icons/fa';
 import { BsBriefcaseFill } from "react-icons/bs";
 import { AiOutlineApartment } from "react-icons/ai";
@@ -100,8 +109,6 @@ const NavBar = ({ SetIsMenuOpen, siteSection }) => {
     }
   };
 
-
-
   // Actualiza activeTab cuando cambia la ruta
   useEffect(() => {
     setActiveTab(siteSection);
@@ -125,11 +132,11 @@ const NavBar = ({ SetIsMenuOpen, siteSection }) => {
     setIsMenuOpen(false);
   };
 
-const closeAllMenus = (except) => {
-  if (except !== 'profile') setIsProfileMenuOpen(false);
-  if (except !== 'notifications') setIsNotificationMenuOpen(false);
-  if (except !== 'info') setIsInfoMenuOpen(false);
-};
+  const closeAllMenus = (except) => {
+    if (except !== 'profile') setIsProfileMenuOpen(false);
+    if (except !== 'notifications') setIsNotificationMenuOpen(false);
+    if (except !== 'info') setIsInfoMenuOpen(false);
+  };
 
   // Toggle topBar con animación de maxHeight
   const toggleTopBar = () => {
@@ -411,7 +418,11 @@ const closeAllMenus = (except) => {
             setIsBottomBarVisible(prev => !prev);
           }}
         >
-          Inferior
+          {isBottomBarVisible ? (
+            <FaArrowDown size={14} style={{ display: 'block' }} />
+          ) : (
+            <FaArrowUp size={14} style={{ display: 'block' }} />
+          )}
         </span>
         <span
           className="split-button-part split-right"
@@ -420,7 +431,11 @@ const closeAllMenus = (except) => {
             setIsRightSidebarOpen(prev => !prev);
           }}
         >
-          Lateral
+          {isRightSidebarOpen ? (
+            <FaArrowRight size={14} style={{ display: 'block' }} />
+          ) : (
+            <FaArrowLeft size={14} style={{ display: 'block' }} />
+          )}
         </span>
       </button>
 
@@ -566,6 +581,5 @@ const closeAllMenus = (except) => {
     </>
   );
 };
-
 
 export default NavBar;

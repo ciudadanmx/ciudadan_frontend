@@ -5,7 +5,7 @@ import { IoSend } from "react-icons/io5";
 
 const TTS = () => {
   const [mensajes, setMensajes] = useState([
-    { from: "bot", text: "🌿 Soy Mary-Bot. Pregúntame lo que quieras sobre Marihuanas.Club 💬" }
+    { from: "bot", text: "🌿 Soy Faby. Pregúntame lo que quieras sobre Ciudadan.org 💬" }
   ]);
 
   const chatEndRef = useRef(null);

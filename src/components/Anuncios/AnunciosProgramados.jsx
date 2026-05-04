@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Card, CardContent, Typography, Button, Stack } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
-import Bitacora from '../Clubs/Bitacora';
+//import Bitacora from '../Clubs/Bitacora';
 import { useRoles } from '../../Contexts/RolesContext';
 
 export default function AnunciosProgramados() {
@@ -48,15 +48,7 @@ export default function AnunciosProgramados() {
       </Card>
 
       {/* CALENDARIO DE ANUNCIOS */}
-      <Bitacora
-        coleccion="ads"
-        titulo="Calendario de anuncios"
-        parametro={'usuario][id'}
-        parametro_valor={userData?.id}
-        mostrarboton={false}
-        mostrarTipos={false}
-        extraFilters="&filters[default][$eq]=false&filters[activo][$eq]=true"
-      />
+     
     </Box>
   );
 }

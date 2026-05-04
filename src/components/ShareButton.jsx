@@ -13,14 +13,14 @@ import logoCuadro from '../assets/logo_cuadro.png';
 
 export default function ShareButton({
   url, // opcional; si no se pasa usa window.location.href
-  mensaje = "Mira esto en Marihuanas.club 👇",
+  mensaje = "Mira esto en Ciudadan.org 👇",
   open: openProp,
   onOpenChange,
   showButton = true,
 }) {
   // ruta local del archivo que subiste (nos la solicitaste usar)
   const uploadedFileUrl = logoCuadro;
-  const MAINDOMAIN = 'https://marihuanas.club';
+  const MAINDOMAIN = 'https://ciudadan.org';
   const urlToShare =
     typeof url === "string" && url.length > 0
       ? url
@@ -391,7 +391,7 @@ glowText: {
                 <img src={uploadedFileUrl} alt="brand" style={styles.headerImg} />
                 <div>
                   <div>Compartir</div>
-                  <div style={styles.micro}>Comparte este enlace con tu parche</div>
+                  <div style={styles.micro}>Comparte este enlace en tus redes !!</div>
                 </div>
               </div>
 

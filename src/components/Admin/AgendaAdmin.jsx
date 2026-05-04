@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendarios from '../Clubs/Bitacora.jsx';
+//import Calendarios from '../Clubs/Bitacora.jsx';
 import { useRoles } from '../../Contexts/RolesContext';
 
 /**
@@ -37,20 +37,6 @@ export default function AgendaAdmin() {
    * =========================
    */
   return (
-    <Calendarios
-      /** Colección de Strapi */
-      coleccion="agendas"
-
-      /** Título dinámico */
-      titulo={`Agenda de: ${nombreUsuario}`}
-
-      /** Filtro por usuario */
-      parametro="usuario"
-      parametro_valor={usuarioId}
-
-      /** Configuración visual */
-      mostrarboton={false}
-      mostrarTipos={false}
-    />
+    <></>
   );
 }
