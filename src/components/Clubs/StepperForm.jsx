@@ -116,7 +116,7 @@ export default function StepperForm({
 
   useEffect(() => {
     console.log('posicionando');
-    const el = document.getElementById("marihuanasclub-app");
+    const el = document.getElementById("ciudadan-app");
     el?.scrollTo({ top: 0, behavior: "auto" });
   }, [activeStep]);
 

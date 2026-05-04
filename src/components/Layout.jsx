@@ -21,7 +21,7 @@ const Layout = () => {
   return (
     <>
       <NavBar />
-      <div id="marihuanasclub-app" className="page-wrapper">
+      <div id="ciudadan-app" className="page-wrapper">
         <Outlet />
       </div>
     </>
